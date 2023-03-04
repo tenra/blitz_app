@@ -14,7 +14,9 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <Link href={Routes.Home()}>homepage</Link>
+        <Link href={Routes.Home()}>homepage</Link>/
+        <Link href={Routes.UsersPage()}>UsersPage</Link>/
+        <Link href={Routes.PromotionsPage()}>PromotionsPage</Link>
       </header>
       {children}
     </>
