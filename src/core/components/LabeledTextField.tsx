@@ -42,7 +42,7 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
           </div>
         )}
 
-        <style jsx>{`
+        {/*<style jsx>{`
           label {
             display: flex;
             flex-direction: column;
@@ -57,7 +57,7 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
             appearance: none;
             margin-top: 0.5rem;
           }
-        `}</style>
+        `}</style>*/}
       </div>
     )
   }
