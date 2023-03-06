@@ -23,3 +23,17 @@ i {
 * {
   box-sizing: border-box;
 }
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+  background-color: rgb(37 37 37 / 75%) !important;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}

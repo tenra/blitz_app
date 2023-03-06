@@ -61,7 +61,7 @@ const ShowPromotionPage = () => {
   );
 };
 
-ShowPromotionPage.authenticate = true;
+ShowPromotionPage.authenticate = { redirectTo: "/" }
 ShowPromotionPage.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default ShowPromotionPage;

@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { Routes } from "@blitzjs/next";
 import Head from "next/head";
 import Link from "next/link";
@@ -8,13 +8,17 @@ import { useParam } from "@blitzjs/next";
 
 import Layout from "src/core/layouts/Layout";
 import getUser from "src/users/queries/getUser";
+import { useCurrentUser } from "src/users/hooks/useCurrentUser"
 //import deleteUser from "src/users/mutations/deleteUser";
+import { UserEditModal } from "src/users/components/UserEditModal";
 
 export const User = () => {
   const router = useRouter();
   const userId = useParam("userId", "number");
   //const [deleteUserMutation] = useMutation(deleteUser);
   const [user] = useQuery(getUser, { id: userId });
+  const currentUser = useCurrentUser()
+  //console.log(currentUser)
 
   return (
     <>
@@ -23,12 +27,17 @@ export const User = () => {
       </Head>
 
       <div>
-        <h1>user {user.id}</h1>
+        <h1>{user.name}</h1>
         <pre>{JSON.stringify(user, null, 2)}</pre>
 
-        <Link href={Routes.EditUserPage({ userId: user.id })} className="btn-primary">
-          Edit
-        </Link>
+        {currentUser?.id === user.id ?
+          <>
+            <UserEditModal />
+            <Link href={Routes.EditUserPage({ userId: user.id })}>
+              edit
+            </Link>
+          </>
+        : null}
 
         {/*<button
           type="button"
@@ -61,7 +70,7 @@ const ShowUserPage = () => {
   );
 };
 
-ShowUserPage.authenticate = true;
+ShowUserPage.authenticate = { redirectTo: "/" }
 ShowUserPage.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default ShowUserPage;

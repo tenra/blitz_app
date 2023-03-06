@@ -1,7 +1,7 @@
 import Head from "next/head"
 import React, { FC } from "react"
-import { BlitzLayout, Routes } from "@blitzjs/next"
-import Link from "next/link"
+import { BlitzLayout } from "@blitzjs/next"
+import { Header } from "src/core/layouts/Header"
 
 const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
   title,
@@ -13,11 +13,7 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
         <title>{title || "blitz_app"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <Link href={Routes.Home()}>homepage</Link>/
-        <Link href={Routes.UsersPage()}>UsersPage</Link>/
-        <Link href={Routes.PromotionsPage()}>PromotionsPage</Link>
-      </header>
+      <Header />
       {children}
     </>
   )
