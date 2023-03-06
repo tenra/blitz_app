@@ -26,7 +26,7 @@ export const User = () => {
         <h1>user {user.id}</h1>
         <pre>{JSON.stringify(user, null, 2)}</pre>
 
-        <Link href={Routes.EditUserPage({ userId: user.id })}>
+        <Link href={Routes.EditUserPage({ userId: user.id })} className="btn-primary">
           Edit
         </Link>
 

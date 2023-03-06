@@ -28,15 +28,18 @@
     "@blitzjs/next": "2.0.0-beta.23",
     "@blitzjs/rpc": "2.0.0-beta.23",
     "@prisma/client": "4.6.0",
+    "autoprefixer": "10.4.13",
     "blitz": "2.0.0-beta.23",
+    "final-form": "4.20.9",
     "next": "13.1",
+    "postcss": "8.4.21",
     "prisma": "4.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-final-form": "6.5.9",
     "secure-password": "4.0.0",
-    "zod": "3.20.2",
-    "final-form": "4.20.9",
-    "react-final-form": "6.5.9"
+    "tailwindcss": "3.2.7",
+    "zod": "3.20.2"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.0.8",

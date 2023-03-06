@@ -11,7 +11,7 @@ import getUser from "src/users/queries/getUser";
 import updateUser from "src/users/mutations/updateUser";
 import { UserForm, FORM_ERROR } from "src/users/components/UserForm";
 
-export const EditPromotion = () => {
+export const EditUser = () => {
   const router = useRouter();
   const userId = useParam("userId", "number");
   const [user, { setQueryData }] = useQuery(
@@ -35,7 +35,7 @@ export const EditPromotion = () => {
         <pre>{JSON.stringify(user, null, 2)}</pre>
 
         <UserForm
-          submitText="Update Promotion"
+          submitText="Update User"
           // TODO use a zod schema for form validation
           //  - Tip: extract mutation's schema into a shared `validations.ts` file and
           //         then import and use it here
@@ -68,7 +68,7 @@ const EditUserPage = () => {
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
-        <EditPromotion />
+        <EditUser />
       </Suspense>
 
       <p>

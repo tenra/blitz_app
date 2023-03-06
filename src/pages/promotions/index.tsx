@@ -54,7 +54,7 @@ const PromotionsPage = () => {
 
       <div>
         <p>
-          <Link href={Routes.NewPromotionPage()}>Create Promotion</Link>
+          <Link href={Routes.NewPromotionPage()} className="btn-primary">Create Promotion</Link>
         </p>
 
         <Suspense fallback={<div>Loading...</div>}>
