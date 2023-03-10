@@ -14,19 +14,27 @@ export const Header: React.FC = () => {
   };
 
   const currentUser = useRecoilValue<any | null>(currentUserState);
-  console.log("Header:currentUserState", currentUser);
 
   return (
     <header>
       <Link href={Routes.Home()}>homepage</Link>/
-      <Link href={Routes.PromotionsPage()}>PromotionsPage</Link>/
-      <Link href={Routes.UsersPage()}>UsersPage</Link>/
-      <button onClick={handleLogout} className="bg-green-300">
-        Logout
-      </button>/
-      <Link href={`/users/${currentUser?.id}`}>
-        {currentUser?.name}
-      </Link>/
+      {currentUser?
+        <>
+          <Link href={Routes.PromotionsPage()}>PromotionsPage</Link>/
+          <Link href={Routes.UsersPage()}>UsersPage</Link>/
+          <button onClick={handleLogout} className="bg-green-300">
+            Logout
+          </button>/
+          <Link href={`/users/${currentUser?.id}`}>
+            {currentUser?.name}
+          </Link>/
+        </>
+      :
+        <>
+          <Link href={Routes.SignupPage()}>SignUp</Link>/
+          <Link href={Routes.LoginPage()}>Login</Link>
+        </>
+      }
     </header>
   )
 }

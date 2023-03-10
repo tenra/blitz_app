@@ -5,6 +5,8 @@ import { UserForm, FORM_ERROR } from "src/users/components/UserForm";
 import { useQuery, useMutation } from "@blitzjs/rpc";
 import getUser from "src/users/queries/getUser";
 import { useParam } from "@blitzjs/next";
+import { useSetRecoilState } from "recoil";
+import { currentUserState } from "src/users/hooks/currentUserState";
 
 export const UserEditModal = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -41,6 +43,8 @@ export const UserEditModal = () => {
     },
   };
 
+  const setcurrentUser = useSetRecoilState(currentUserState);
+
   return (
     <>
       <button onClick={handleOpenModal} className="btn-primary">
@@ -68,6 +72,7 @@ export const UserEditModal = () => {
                   ...values,
                 });
                 await setQueryData(updated);
+                setcurrentUser(values);
                 setShowModal(false);
                 //await router.push(
                   //Routes.ShowUserPage({ userId: updated.id })
